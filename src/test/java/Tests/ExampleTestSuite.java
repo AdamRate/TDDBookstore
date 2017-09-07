@@ -10,13 +10,11 @@ public class ExampleTestSuite {
 
     @BeforeClass
     public static void beforeClass() {
-        serviceClass sc = new serviceClass();
-        sc.addNewBook("Test Author", "Test Title", "history", "1995");
+
     }
 
     @Before
     public void beforeTest() {
-
     }
 
     @Test
@@ -28,15 +26,19 @@ public class ExampleTestSuite {
     @Test
     public void addBookTest(){
         serviceClass sc = new serviceClass();
+        sc.init();
+
         int mapSize = sc.getBookMapSize();
-        sc.addNewBook("Adam", "Book Title", "history", "4001");
+        sc.addDefaultBook();
         Assert.assertEquals(mapSize+1, sc.getBookMapSize());
     }
 
     @Test
     public void countBookTest(){
         serviceClass sc = new serviceClass();
-        Assert.assertEquals(2, sc.countBookType("history"));
+        sc.init();
+
+        Assert.assertEquals(1, sc.countBookType("history"));
     }
 
     @After
