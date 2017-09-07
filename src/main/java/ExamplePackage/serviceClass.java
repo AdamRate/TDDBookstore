@@ -11,10 +11,6 @@ public class serviceClass {
         return "Test";
     }
 
-//    public int listBooks(){
-//        return 0;
-//    }
-
     public void init() {
         this.bookMap = new HashMap<Integer, Book>();
         ID = 0;
@@ -37,12 +33,10 @@ public class serviceClass {
     }
 
     public int countBookType(String genre) {
-int z = 0;
-        for (int i =1; i < bookMap.size()+1; i++){
+        int z = 0;
+        for (int i = 1; i < bookMap.size() + 1; i++) {
             Book b = bookMap.get(i);
-            String gotGenre = b.getGenre();
-
-            if (gotGenre == genre){
+            if (b.getGenre().equals(genre)) {
                 z++;
             }
         }
